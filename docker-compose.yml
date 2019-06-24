@@ -1,0 +1,42 @@
+version: '3.5'
+
+services:
+
+  ansible_target_01:
+    container_name: ansible_target_01
+    image: ansible-target
+    build: 
+      context: target
+    networks:
+      - ansible
+
+  ansible_target_02:
+    container_name: ansible_target_02
+    image: ansible-target
+    build: 
+      context: target
+    networks:
+      - ansible
+
+  ansible_target_03:
+    container_name: ansible_target_03
+    image: ansible-target
+    build: 
+      context: target
+    networks:
+      - ansible
+
+  ansible_controller:
+    container_name: ansible_controller
+    image: ansible-controller
+    build:
+      context: controller
+    command: tail -f /dev/null
+    volumes:
+      - $PWD/controller/.ssh:/root/.ssh
+      - $PWD/controller/ansible:/root/ansible
+    networks:
+      - ansible
+
+networks:
+  ansible:
