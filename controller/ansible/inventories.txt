@@ -1,3 +1,4 @@
+[db_and_web_servers]
 target1 ansible_host=ansible_target_01 ansible_user=target_user ansible_private_key_file=/root/.ssh/key 
 target2 ansible_host=ansible_target_02 ansible_user=target_user ansible_private_key_file=/root/.ssh/key 
 target3 ansible_host=ansible_target_03 ansible_user=target_user ansible_private_key_file=/root/.ssh/key 
